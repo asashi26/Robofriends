@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import CardList from "./card-list";
-import SearchBox from "./search-box";
+import CardList from "../components/card-list";
+import SearchBox from "../components/search-box";
 import "./app.css";
-import Scroll from "./scroll"
+import Scroll from "../components/scroll"
 
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
 		super()
 		this.state = {
 			robots: [],
-			searchField: ""
+			searchfield: ""
 		}
 		this.onSearchChange = this.onSearchChange.bind(this)
 	}
@@ -24,20 +24,18 @@ class App extends Component {
 
 	onSearchChange(event){
 		this.setState({
-				searchField: event.target.value
+				searchfield: event.target.value
 		})
 	}
 
-
 	render() {
-
-		const filtreRobots = this.state.robots.filter(robot => {
-			return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+		const {robots, searchfield} = this.state;
+		const filtreRobots = robots.filter(robot => {
+			return robot.name.toLowerCase().includes(searchfield.toLowerCase())
 		})
-		if(this.state.robots.length === 0){
-			return <h1 className="tc">Loading...</h1>
-		}else {
-			return (
+		return !robots.length ? 
+		<h1 className="tc">Loading...</h1> :
+			(
 				<div className="tc">
 					<h1 className="f1">Robot Friends</h1>
 					<SearchBox searchChange={this.onSearchChange}/>
@@ -45,7 +43,7 @@ class App extends Component {
 						<CardList roboti={filtreRobots}/>
 					</Scroll>
 				</div>
-			);}
+			)
 	}
 }
 

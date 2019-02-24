@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import "tachyons";
-import App from "./app.js";
+import App from "./containers/app.js";
 
 ReactDOM.render(
 
