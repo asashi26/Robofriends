@@ -2,9 +2,9 @@
   "name": "robofriends",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://asashi26.github.io/Robofriends",
   "dependencies": {
     "gh-pages": "^2.0.1",
-    "homepage":"https://asashi26.github.io/Robofriends",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
